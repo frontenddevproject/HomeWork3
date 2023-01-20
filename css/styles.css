@@ -14,8 +14,12 @@ body{
    margin: 50px auto;
    font-family: Arial, sans-serif;
 }
+header {
+   grid-template-columns: 30% 70%;
+   gap:20px;
+}
 .avatar_block{
-justify-content: center;
+   justify-content: center;
 }
 .avatar_bg{
    position: relative;
@@ -31,10 +35,6 @@ justify-content: center;
    border-radius: 50%;
    box-sizing: border-box;
    background-color: #fff;
-}
-header {
-   grid-template-columns: 30% 70%;
-   gap:20px;
 }
 .row-1{
    gap:20px;
@@ -110,7 +110,7 @@ header {
    background-size: cover;
 }
 .header_content_text a:hover{
-text-decoration: underline;
+   text-decoration: underline;
 }
 .header_content_text a:active,.header_content_text a:visited{
    color:#315F6D
@@ -129,7 +129,6 @@ figure img{
    height:77px;
    border-radius: 50%;
    border: 1.5px solid #000;
-  
 }
 figure figcaption{
    text-align: center;
@@ -165,13 +164,43 @@ figure figcaption{
    color:gray;
    cursor: pointer;
    position: relative;
-   transition: color 0.4s;
+   transition: all 0.4s;
    font-weight: 500;
 }
 .nav-wrapper-btn:hover{
    color:#000;
 }
-.nav-wrapper-btn:after{
+.nav-wrapper-btn::before{
+   content: "";
+   display: inline-block;
+   width: 14px;
+   height: 14px;
+   background-repeat: no-repeat;
+   vertical-align: top;
+   opacity: 0.5;
+   margin-right: 5px;
+   transition: all 0.4s;
+}
+.nav-wrapper-btn:first-child::before{
+   background: url('../images/posts.png');
+   background-size: cover;
+}
+.nav-wrapper-btn:nth-child(2)::before{
+   background: url('../images/reels.png');
+   background-size: cover;
+}
+.nav-wrapper-btn:nth-child(3)::before{
+   background: url('../images/igtv.png');
+   background-size: cover;
+}
+.nav-wrapper-btn:nth-child(4)::before{
+   background: url('../images/tagged.png');
+   background-size: cover;
+}
+.nav-wrapper-btn:hover::before{
+   opacity: 1;
+}
+.nav-wrapper-btn::after{
    content: "";
    position: absolute;
    width: 70%;
@@ -183,11 +212,11 @@ figure figcaption{
    opacity: 0;
    transition: opacity 0.5s;
 }
-.nav-wrapper-btn:hover:after{
+.nav-wrapper-btn:hover::after{
    opacity: 1;
 }
 .main-wrapper{
-   grid-template-columns: repeat(3, 293px);
+   grid-template-columns: repeat(auto-fill, 293px);
    grid-template-rows: repeat(3, 293px);
    gap:15px;
    justify-content: center;
@@ -211,7 +240,6 @@ figure figcaption{
    justify-content: space-between;
    opacity: 0;
    transition: all 1s;
-
 }
 .image-like::before{
    content: "";
@@ -222,9 +250,8 @@ figure figcaption{
    background-size: cover;
    background-repeat: no-repeat;
    margin-right: 7px;
-
 }
-.image-chat:before{
+.image-chat::before{
    content: "";
    display: inline-block;
    width: 30px;
@@ -233,11 +260,11 @@ figure figcaption{
    background-size: cover;
    background-repeat: no-repeat;
    margin-right: 7px;
-  
 }
 .main-wrapper > div:hover > img{
    filter: brightness(0.5);
-   transition: filter 0.4s;
+   transform: scale(1.1);
+   transition: all 0.4s;
 }
 .main-wrapper > div:hover > .image-like-block{
    top:50%;
