@@ -186,17 +186,14 @@ figure figcaption{
 .nav-wrapper-btn:hover:after{
    opacity: 1;
 }
-main{
+.main-wrapper{
    grid-template-columns: repeat(3, 293px);
    grid-template-rows: repeat(3, 293px);
    gap:15px;
-}
-main > .content{
-   border:1px solid gray;
-   width:350px;
-   height: 350px;
-}
-.main-wrapper{
-   align-items: center;
    justify-content: center;
+}
+.main-wrapper > div{
+   width:100%;
+   height: 100%;
+   overflow: hidden;
 }
